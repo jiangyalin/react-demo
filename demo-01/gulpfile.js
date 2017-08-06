@@ -31,11 +31,11 @@ gulp.task('html', function () {
 });
 
 gulp.task('watch', function () {
-  gulp.watch('./dist/**/*.js', {'js'});
-  gulp.watch('./app/**/*.html', {'html'});
-  gulp.watch('./app/js/**/*.js', {'browserify'});
+  gulp.watch('./dist/**/*.js', ['js']);
+  gulp.watch('./app/**/*.html', ['html']);
+  gulp.watch('./app/js/**/*.js', ['browserify']);
 });
 
-gulp.task('default', {'browserify'});
+gulp.task('default', ['browserify']);
 
-gulp.task('server', {'browserify', 'connect', 'watch'});
+gulp.task('server', ['browserify', 'connect', 'watch']);

@@ -1,7 +1,8 @@
 const React = require('react');
+const ReactDOM = require('react-dom');
 const QuestionApp = require('./components/QuestionApp');
 
-let mainCom = React.render(
-  <QuestionApp/>,
-  document.getElementsById('app')
+let mainCom = ReactDOM.render(
+  <QuestionApp />,
+  document.getElementById('app')
 );
