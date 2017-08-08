@@ -1,3 +1,8 @@
-/**
- * Created by jiangyalin on 2017/8/8.
- */
+import React from 'react';
+import { render } from 'react-dom';
+import Routes from './routes';
+
+render(
+  <h1>5555</h1>,
+  document.getElementById('app')
+);
