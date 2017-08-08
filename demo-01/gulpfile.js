@@ -31,12 +31,14 @@ gulp.task('html', function () {
     .pipe(connect.reload())
 });
 
+// 监听文件修改
 gulp.task('watch', function () {
   gulp.watch('./dist/**/*.js', ['js']);
   gulp.watch('./app/**/*.html', ['html']);
   gulp.watch('./app/js/**/*.js', ['browserify']);
 });
 
+// 默认任务（输入gulp运行）
 gulp.task('default', ['browserify']);
 
 gulp.task('server', ['browserify', 'connect', 'watch']);
