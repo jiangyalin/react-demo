@@ -1,27 +1,28 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
 
 const config = {
   entry: [
     path.resolve(__dirname, 'src/js/index.js') // 入口文件 根据此文件检查依赖
   ],
   output: {
-    path: path.resolve(__dirname, 'build'), // 出口路径
+    path: path.resolve(__dirname, 'dist'), // 出口路径
     filename: 'bundle.js', // 输出文件名
     publicPath: '/'
   },
   devServer: {
     hot: true, // 激活服务器的HMR
-    contentBase: path.resolve(__dirname, 'build'),
+    contentBase: path.resolve(__dirname, 'dist'),
     publicPath: '/',
     port: 8081,
     historyApiFallback: true
   },
   module: {
     rules: [{
-      test: /\.js?$/, // 用正则来匹配文件路径，这段意思是匹配 js
-      use: 'babel-loader', // 加载模块 "babel-loader"
-      exclude: /node_modules/, // 排除此路径下的文件
+      test: /\.js?$/,
+      use: 'babel-loader',
+      exclude: /node_modules/,
       include: [
         path.resolve(__dirname, 'src')
       ]
@@ -30,6 +31,7 @@ const config = {
       use: [
         {loader: 'style-loader'},
         {loader: 'css-loader?modules&sourceMap&importLoaders=1&localIdentName=[local]___[hash:base64:5]'},
+        {loader: 'postcss-loader'},
         {loader: 'sass-loader'}
       ],
       exclude: /node_modules/,

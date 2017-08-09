@@ -1,9 +1,7 @@
 import React from 'react'
 import { Router, Route, IndexRoute, hashHistory } from 'react-router'
 
-import {
-  Home,
-} from './containers'
+import Home from 'component'
 
 const Routes = ({ history }) => (
   <Router history={history}>

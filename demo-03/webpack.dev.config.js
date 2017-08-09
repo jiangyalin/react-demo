@@ -6,13 +6,13 @@ const config = {
     path.resolve(__dirname, 'app/main.js') // 入口文件 根据此文件检查依赖
   ],
   output: {
-    path: path.resolve(__dirname, 'build'), // 出口路径
+    path: path.resolve(__dirname, 'dist'), // 出口路径
     filename: 'bundle.js', // 输出文件名
     publicPath: '/'
   },
   devServer: {
     hot: true, // 激活服务器的HMR
-    contentBase: path.resolve(__dirname, 'build'),
+    contentBase: path.resolve(__dirname, 'dist'),
     publicPath: '/',
     port: 8081,
     historyApiFallback: true
