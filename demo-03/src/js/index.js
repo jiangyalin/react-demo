@@ -7,64 +7,81 @@ import { Provider, connect } from 'react-redux'
 import Routes from './routes';
 
 const rootEl = document.getElementById('app');
+import { Cs } from './components';
+import { Appb } from './containers';
 
-class Counter extends Component {
-  render() {
-    const { value, onIncreaseClick } = this.props;
-    return (
-      <div>
-        <span>{value}</span>
-        <button type="button" onClick={onIncreaseClick}>点击+1</button>
-        <button type="button" onClick={onIncreaseClick}></button>
-      </div>
-    )
-  }
-}
+// class Counter extends Component {
+//   render() {
+//     const { value,  onIncreaseClick, onIncreaseClickB } = this.props;
+//     return (
+//       <div>
+//         <span>{value}</span>
+//         <button type="button" onClick={onIncreaseClick}>点击+1</button>
+//         <button type="button" onClick={onIncreaseClickB}>点击-{}1</button>
+//       </div>
+//     )
+//   }
+// }
 
-Counter.propTypes = {
-  value: PropTypes.number.isRequired,
-  onIncreaseClick: PropTypes.func.isRequired
-};
+// Counter.propTypes = {
+//   value: PropTypes.number.isRequired,
+//   // b: PropTypes.number.isRequired,
+//   onIncreaseClick: PropTypes.func.isRequired,
+//   // onIncreaseClickB: PropTypes.number.isRequired
+// };
 
-const increaseAction = { type: 'increase' };
+// const increaseAction = { type: 'increase' };
+// const cutbackAction = { type: 'cutback'};
 
-const counter = ( state = { count: 0 }, action ) => {
-  const count = state.count;
-  switch (action.type) {
-    case 'increase':
-      return { count: count + 1 };
-    default:
-      return state;
-  }
-};
+import { increaseAction, cutbackAction } from './actions/cs'
 
-const store = createStore(counter);
+// const counter = ( state = { count: 0 }, action ) => {
+//   const count = state.count;
+//   switch (action.type) {
+//     case 'increase':
+//       return { count: count + 1 };
+//     case 'cutback':
+//       return { count: count - 1 };
+//     default:
+//       return state;
+//   }
+// };
+import { cs } from './reducers'
 
-const mapStateToProps = (state) => {
-  return {
-    value: state.count
-  }
-};
+const store = createStore(cs);
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    onIncreaseClick: () => dispatch(increaseAction)
-  }
-};
+// const mapStateToProps = (state) => {
+//   return {
+//     value: state.count
+//   }
+// };
 
-const App = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Counter);
+// const mapB = () => {
+//   return {
+//     b: 555
+//   }
+// };
+
+// const mapDispatchTo = () => {
+//   return {
+//     onIncreaseClick: () => store.dispatch(increaseAction),
+//     onIncreaseClickB: () => store.dispatch(cutbackAction)
+//   }
+// };
+//
+// const App = connect(
+//   mapStateToProps,
+//   mapDispatchTo
+// )(Appb);
 
 render(
   <Provider store={store}>
-    <App/>
+    <Appb/>
   </Provider>,
   rootEl
 );
 
-render(
-  <Routes history={browserHistory}/>,
-  rootEl
-);
+// render(
+//   <Routes history={browserHistory}/>,
+//   rootEl
+// );
