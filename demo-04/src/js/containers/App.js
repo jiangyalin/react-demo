@@ -1,22 +1,19 @@
 import React from 'react';
 import { connect } from 'react-redux'
-// import { addTodo } from '../actions/cs'
+
+import { demoAdd } from '../actions/demo';
 
 class App extends React.Component {
+  click = () => {
+    console.log('k' + this.props.store.demo.text);
+    this.props.dispatch(demoAdd('k'))
+  };
   render() {
-    let input;
-    const store = this.props;
+    const { store } = this.props;
     return (
       <div>
-        <input type="text"/>
-        <button type="button" onClick={e => {
-          // store.dispatch(addTodo('k'));
-          console.log('store',this.props)
-        }}>提交</button>
-        {
-          store.store.cs.map(value =>
-            <p key='0'>{store.store.cs[0].text}</p>
-          )}
+        {store.demo.text}
+        <button type="button" onClick={this.click}>点击</button>
       </div>
     )
   }
