@@ -1,13 +1,13 @@
 let init = {
-  text: '这是测试数据'
+  text: 1
 };
 
 const demo = ( state = init, action ) => {
   switch (action.type) {
-    case 'DEMO_ADD':
+    case 'INCREMENT':
       return {
         ...state,
-        text: 'aaa'
+        text: state.text+1
       };
     default:
       return state
